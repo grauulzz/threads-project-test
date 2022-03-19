@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeliveryManager {
+public class DeliveryManager implements Runnable {
 
     public List<WarehousePackage> incomingPackages;
     public List<WarehousePackage> additionalProcessing;
@@ -19,9 +19,11 @@ public class DeliveryManager {
     /**
      * Code to be run on thread start. (Needs to be completed.)
      */
+    @Override
     public void run() {
         System.out.println("DeliveryManager thread started.");
-
+        sortShipment();
+        printInventory();
     }
 
     /**
